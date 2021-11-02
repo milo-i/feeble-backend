@@ -1,8 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const fs = require("fs");
-const cors = require("cors");
-const bodyParser = require("body-parser");
 
 
 /* GET users listing. */
@@ -12,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next){
    console.log( req.body);
-   res.json('lyckad', req.body);
+   res.json(req.body);
    
 })
 
