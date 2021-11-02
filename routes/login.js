@@ -21,16 +21,17 @@ router.get('/', function (req, res, next) {
 // Post route där vi tar emot username och password
 router.post('/', function (req, res, next) {
 
-  console.log(req.body.Username);
+  // console.log('rad 24', req.body.Username);
 
 
   User.find({ username: req.body.Username })
     .exec()
     .then(user => {
       console.log('rad 30', user);
-      if (user.length > 0) {
-        console.log(typeof req.body.Password);
-        console.log(user[0].password);
+      if (user.length >= 1) {
+        // console.log(typeof req.body.Password);
+        console.log('rad 33 USER', user[0])
+        console.log('rad 34 USER', user[0].password)
 
         if (user[0].password == req.body.Password) {
           console.log('user match username and password');
@@ -48,7 +49,6 @@ router.post('/', function (req, res, next) {
     })
     .catch((err) => console.log(err));
 
-  console.log(req.body);
   res.json(req.body);
 
 })
