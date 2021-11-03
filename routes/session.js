@@ -16,4 +16,6 @@ router.post('/add', function(req, res, next){
     })
     req.body.save()
     res.send("new session saved")
-})
+});
+
+module.exports = router;
