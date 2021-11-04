@@ -5,15 +5,19 @@ const Session = require('../models/session');
 
 /*Add new sessions*/
 router.post('/add', function (req, res, next) {
-  const { userId, sessionId, location, time, users } = req.body;
+  //const { userId, sessionId, location, time, users } = req.body;
+  const { userName, sessionId, date, city, street, users } = req.body;
+  console.log(req.body);
 
-  const session = new Session({
-    userId,
-    sessionId,
-    location,
-    time,
-    users
-  })
+   const session = new Session({
+     userName,
+     sessionId,
+     city,
+     street,
+     date,
+     users
+   })
+  
   session.save()
   res.send("new session saved")
 });
