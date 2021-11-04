@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const sessionSchema = new Schema({
- userId: {
-  type: Number,
-  required: true
- },
- sessionId: {
-  type: Number,
-  required: true
- },
- location: {
+  userName: {
+   type: String,
+   required: true
+  },
+  sessionId: {
+   type: Number,
+   required: true
+  },
+ city: {
   type: String,
   required: true
  },
@@ -18,14 +18,14 @@ const sessionSchema = new Schema({
   type: String,
   required: true
  },
- time: {
-  type: Number,
+ date: {
+  type: String,
   required: true
  },
- users: {
-  type: Array,
-  required: false
- }
+  users: {
+   type: Array,
+   required: false
+  }
 });
 
 
