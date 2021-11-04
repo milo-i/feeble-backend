@@ -14,6 +14,10 @@ const sessionSchema = new Schema({
   type: String,
   required: true
  },
+ street: {
+  type: String,
+  required: true
+ },
  time: {
   type: Number,
   required: true
