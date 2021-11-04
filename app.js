@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var sessionRouter = require('./routes/session');
 var loginRouter = require('./routes/login');
+var sessionRouter= require('./routes/session')
 
 var app = express();
 
@@ -23,6 +24,7 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/session', sessionRouter);
 app.use('/login', loginRouter);
+app.use('/session', sessionRouter)
 
 
 // Connection to mongodb
