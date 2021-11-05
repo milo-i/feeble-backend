@@ -3,11 +3,6 @@ var router = express.Router();
 const User = require('../models/user');
 
 
-router.get('/', function (req, res, next) {
-  res.send("this is the login route")
-});
-
-
 // Post route där vi tar emot username och password
 router.post('/', function (req, res, next) {
 
@@ -32,11 +27,5 @@ router.post('/', function (req, res, next) {
     })
     .catch((err) => console.log(err));
 })
-
-
-
-
-
-
 
 module.exports = router;
