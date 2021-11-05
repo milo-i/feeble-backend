@@ -35,16 +35,17 @@ router.get('/', function (req, res, next) {
 });
 
 
-// Add session to db
-router.post('/add', (req, res, next) => {
+// Check sessionId and compare with sessionId to db
+router.post('/check', (req, res, next) => {
 
   // Receive username and sessionId
 
   const { userName, sessionId } = req.body;
 
 
-
   // med sessionId matchar jag det id:et med databas sessionid
+
+  Session.find({ sessionId })
 
 
   // uppdatera arrayen med users och lägg till username där om det inte finns ett sånt username sen tidigare
@@ -55,3 +56,14 @@ router.post('/add', (req, res, next) => {
 
 module.exports = router;
 
+
+// post fetch
+
+// username
+// sessionId
+
+// session / join
+
+// find the session id and match it
+
+// uppdate array in db with the username from the post
