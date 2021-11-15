@@ -5,32 +5,20 @@ const User = require('../models/user');
 
 
 /*Add new sessions*/
-router.post('/add', function (req, res, next) {
-
-  const { userId, sessionId, location, street, time, users } = req.body;
-
-  const session = new Session({
-    userId,
-    sessionId,
-    location,
-    street,
-    time,
-    users
-  })
+router.post('/add', (req, res, next) => {
 
   //const { userId, sessionId, location, time, users } = req.body;
   const { userName, sessionId, date, city, street, users } = req.body;
-  console.log(req.body);
 
-   const session = new Session({
-     userName,
-     sessionId,
-     city,
-     street,
-     date,
-     users
-   })
-  
+  const session = new Session({
+    userName,
+    sessionId,
+    city,
+    street,
+    date,
+    users
+  })
+
   session.save()
   res.send("new session saved")
 });
@@ -38,7 +26,7 @@ router.post('/add', function (req, res, next) {
 
 
 /* Get all sessions*/
-router.get('/', function (req, res, next) {
+router.get('/', (req, res, next) => {
 
   Session.find().
     then(session => {
@@ -55,12 +43,25 @@ router.post('/check', (req, res, next) => {
 
   // Receive username and sessionId
 
-  const { userName, sessionId } = req.body;
-
+  // const { userName, sessionId } = req.body;
 
   // med sessionId matchar jag det id:et med databas sessionid
 
-  Session.find({ sessionId })
+  Session.find({ sessionId: req.body.sessionId }, (err, sessions) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('sessions', sessions[0]);
+      sessions[0].users.push(req.body.userName);
+      console.log('NYA', sessions);
+      res.json(sessions);
+    }
+  })
+  // .
+  //   then(session => {
+  //     console.log(session);
+  //     console.log(sessionId);
+  //   })
 
 
   // uppdatera arrayen med users och lägg till username där om det inte finns ett sånt username sen tidigare
