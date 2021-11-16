@@ -44,17 +44,20 @@ router.post('/check', (req, res, next) => {
   Session.findOne({ sessionId: req.body.sessionId }).exec().
     then(doc => {
       console.log(doc);
+      let flag = true;
 
       for (const val of doc.users) {
         console.log('Value: ', val);
 
         if (val == req.body.userName) {
           console.log('matchning', val);
+          flag = false;
 
-        } else {
-
-          doc.users.push(req.body.userName);
         }
+      }
+      if(flag){
+
+        doc.users.push(req.body.userName);
       }
 
       doc.save()
