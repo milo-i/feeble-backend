@@ -6,7 +6,7 @@ const Session = require('../models/session');
 /*Add new sessions*/
 router.post('/add', (req, res, next) => {
 
-  //const { userId, sessionId, location, time, users } = req.body;
+
   const { userName, sessionId, date, city, street, users } = req.body;
 
   const session = new Session({
