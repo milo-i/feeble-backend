@@ -45,9 +45,21 @@ router.post('/check', (req, res, next) => {
     then(doc => {
       console.log(doc);
 
-      doc.users.push(req.body.userName);
+      for (const val of doc.users) {
+        console.log('Value: ', val);
+
+        if (val == req.body.userName) {
+          console.log('matchning', val);
+
+        } else {
+
+          doc.users.push(req.body.userName);
+        }
+      }
+
       doc.save()
       res.json({ participants: doc.users });
+
     })
 
 
