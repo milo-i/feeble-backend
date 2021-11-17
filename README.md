@@ -2,18 +2,16 @@
 Group project. Creating MVP for our skateTinder app. This is the backend server with database connection
 
 
-Projektet installeras genom att man först klonar repot. När man öppnat repot i vs code, öppna terminalen och skriv sedan in kommandon npm install för att installera alla dependencies/npm packet 
-
-Projektet är utvecklat med React 
-
-I detta projekt använde vi oss av MongoDB som databas. Till backend koden använde vi oss av Express JS där vi satte upp en server boilerplate.  
+For this project we used MongoDB as database. For the backend code, we used Express JS where we set up a server boilerplate.
 
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+Setup and installation
 
-The project is installed by first cloning the repot. When opening repot i vs code, open the terminal and then type in commands npm install to install all dependencies / npm package
+1. Clone this repo with git.
+2. Install Nodejs.
+3. In the terminal write "npm install".
+  This will install all the project dependencies/npm packages
 
-The project is developed with React
+4. To start the app write in the terminal "npm start" or "nodemon start".
 
-This project is used for us by MongoDB as database. For the backend code, we used Express JS where we set up a server boilerplate.
